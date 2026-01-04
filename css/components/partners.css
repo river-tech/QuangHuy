@@ -1,0 +1,30 @@
+/* Partners Section */
+.partners-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.partner-image {
+    max-width: 1000px;
+    width: 100%;
+    opacity: 0.9;
+    transition: var(--transition-base);
+}
+
+.partner-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(1.1);
+}
+
+.partner-image:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .partners-list {
+        margin-top: 2rem;
+    }
+}

@@ -1,0 +1,48 @@
+/* Thanks Section */
+.thanks {
+    background-color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.thanks-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.thanks-text {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-weight: 300;
+}
+
+.thanks-divider {
+    width: 40px;
+    height: 1px;
+    background-color: var(--accent-blue);
+    margin: 0 auto 2rem;
+}
+
+.thanks-signature {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--white);
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .thanks-text {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+
+    .thanks-signature {
+        font-size: 1.2rem;
+    }
+}
+

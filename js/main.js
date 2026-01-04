@@ -1,83 +1,38 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Reveal Animations using Intersection Observer
-    const revealElements = document.querySelectorAll('.reveal, .reveal-slide-up');
-    
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                // Optional: stop observing after reveal
-                // revealObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+import { initRevealAnimations } from './modules/animations.js';
+import { initBackToTop } from './modules/backToTop.js';
+import { initVideoLogic } from './modules/video.js';
+import { initSmoothScroll } from './modules/navigation.js';
 
-    revealElements.forEach(el => {
-        revealObserver.observe(el);
-    });
+async function loadSection(id, path) {
+    const response = await fetch(path);
+    if (!response.ok) return;
+    const html = await response.text();
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+}
 
-    // Sticky Header Effect
-    const header = document.querySelector('.header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(11, 15, 20, 0.95)';
-            header.style.padding = '1rem 0';
-            header.style.borderBottom = '1px solid rgba(255, 255, 255, 0.05)';
-        } else {
-            header.style.background = 'linear-gradient(to bottom, rgba(11, 15, 20, 0.8), transparent)';
-            header.style.padding = '1.5rem 0';
-            header.style.borderBottom = 'none';
-        }
-    });
+async function init() {
+    // Load all sections
+    await Promise.all([
+        loadSection('hero-placeholder', 'sections/hero.html'),
+        loadSection('about-placeholder', 'sections/about.html'),
+        loadSection('experience-placeholder', 'sections/experience.html'),
+        loadSection('event-gala-placeholder', 'sections/event-gala.html'),
+        loadSection('event-teambuilding-placeholder', 'sections/event-teambuilding.html'),
+        loadSection('event-yep-placeholder', 'sections/event-yep.html'),
+        loadSection('event-others-placeholder', 'sections/event-others.html'),
+        loadSection('thanks-placeholder', 'sections/thanks.html'),
+        loadSection('partners-placeholder', 'sections/partners.html'),
+        loadSection('videos-placeholder', 'sections/videos.html'),
+        loadSection('contact-placeholder', 'sections/contact.html'),
+        loadSection('footer-placeholder', 'sections/footer.html')
+    ]);
 
-    // Back to Top Button
-    const backToTop = document.querySelector('#backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
-        }
-    });
+    // Initialize modules after sections are loaded
+    initRevealAnimations();
+    initBackToTop();
+    initVideoLogic();
+    initSmoothScroll();
+}
 
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Video Audio Logic (Simplified placeholder)
-    const videoItems = document.querySelectorAll('.video-item');
-    videoItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // In a real scenario, this would handle HTML5 video elements
-            console.log('Video clicked: Mute/Unmute logic would go here');
-            
-            // Example: Mute all other videos
-            videoItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    // otherItem.querySelector('video').muted = true;
-                }
-            });
-        });
-    });
-
-    // Smooth Scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-});
-
+document.addEventListener('DOMContentLoaded', init);
