@@ -17,14 +17,13 @@ async function init() {
         loadSection('hero-placeholder', 'sections/hero.html'),
         loadSection('about-placeholder', 'sections/about.html'),
         loadSection('experience-placeholder', 'sections/experience.html'),
+        loadSection('partners-placeholder', 'sections/partners.html'),
         loadSection('event-gala-placeholder', 'sections/event-gala.html'),
         loadSection('event-teambuilding-placeholder', 'sections/event-teambuilding.html'),
         loadSection('event-yep-placeholder', 'sections/event-yep.html'),
         loadSection('event-others-placeholder', 'sections/event-others.html'),
-        loadSection('thanks-placeholder', 'sections/thanks.html'),
-        loadSection('partners-placeholder', 'sections/partners.html'),
         loadSection('videos-placeholder', 'sections/videos.html'),
-        loadSection('contact-placeholder', 'sections/contact.html'),
+        loadSection('thanks-placeholder', 'sections/thanks.html'),
         loadSection('footer-placeholder', 'sections/footer.html')
     ]);
 
