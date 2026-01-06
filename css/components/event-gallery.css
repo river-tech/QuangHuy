@@ -24,6 +24,14 @@
     background-image: linear-gradient(rgba(11, 15, 20, 0.4), rgba(11, 15, 20, 0.4)), url('../../assets/img/background/orther.png');
 }
 
+#halong-acsv {
+    background-image: linear-gradient(rgba(11, 15, 20, 0.4), rgba(11, 15, 20, 0.4)), url('../../assets/img/background/Halong.png');
+}
+
+#liendoan-badinh {
+    background-image: linear-gradient(rgba(11, 15, 20, 0.4), rgba(11, 15, 20, 0.4)), url('../../assets/img/background/LienDoanLaoDong.png');
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr;

@@ -21,6 +21,8 @@ async function init() {
         loadSection('event-gala-placeholder', 'sections/event-gala.html'),
         loadSection('event-teambuilding-placeholder', 'sections/event-teambuilding.html'),
         loadSection('event-yep-placeholder', 'sections/event-yep.html'),
+        loadSection('event-halong-placeholder', 'sections/event-halong.html'),
+        loadSection('event-liendoan-placeholder', 'sections/event-liendoan.html'),
         loadSection('event-others-placeholder', 'sections/event-others.html'),
         loadSection('videos-placeholder', 'sections/videos.html'),
         loadSection('thanks-placeholder', 'sections/thanks.html'),
